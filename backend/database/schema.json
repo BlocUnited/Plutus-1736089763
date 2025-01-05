@@ -1,0 +1,320 @@
+{
+  "collections": [
+    {
+      "name": "Users",
+      "purpose": "Stores user information and their related data such as portfolios, communities, achievements, and AI mentors.",
+      "fields": {
+        "_id": "ObjectId",
+        "username": "String",
+        "email": "String",
+        "password": "String",
+        "portfolio": {
+          "type": "ObjectId",
+          "ref": "Portfolios"
+        },
+        "communities": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Communities"
+          }
+        },
+        "achievements": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Achievements"
+          }
+        },
+        "leaderboard": {
+          "type": "ObjectId",
+          "ref": "Leaderboards"
+        },
+        "dashboard": {
+          "type": "ObjectId",
+          "ref": "Dashboards"
+        },
+        "mentor": {
+          "type": "ObjectId",
+          "ref": "AI_Mentors"
+        },
+        "created_at": "Date",
+        "updated_at": "Date"
+      }
+    },
+    {
+      "name": "Courses",
+      "purpose": "Contains guided courses tailored to various creative disciplines, including lessons and associated metadata.",
+      "fields": {
+        "_id": "ObjectId",
+        "title": "String",
+        "description": "String",
+        "category": "String",
+        "lessons": {
+          "type": "Array",
+          "items": {
+            "title": "String",
+            "content": "String",
+            "order": "Number"
+          }
+        },
+        "created_by": {
+          "type": "ObjectId",
+          "ref": "Users"
+        },
+        "created_at": "Date",
+        "updated_at": "Date"
+      }
+    },
+    {
+      "name": "Challenges",
+      "purpose": "Represents interactive challenges that users can participate in to spark creativity and collaboration.",
+      "fields": {
+        "_id": "ObjectId",
+        "title": "String",
+        "description": "String",
+        "category": "String",
+        "start_date": "Date",
+        "end_date": "Date",
+        "participants": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Users"
+          }
+        },
+        "projects": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Projects"
+          }
+        }
+      }
+    },
+    {
+      "name": "Communities",
+      "purpose": "Facilitates interest-based communities where users can engage in discussions, share resources, and collaborate.",
+      "fields": {
+        "_id": "ObjectId",
+        "name": "String",
+        "description": "String",
+        "category": "String",
+        "members": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Users"
+          }
+        },
+        "discussions": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Discussions"
+          }
+        },
+        "resources": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Resources"
+          }
+        }
+      }
+    },
+    {
+      "name": "Projects",
+      "purpose": "Stores collaborative projects created by users, including details and associated feedback.",
+      "fields": {
+        "_id": "ObjectId",
+        "title": "String",
+        "description": "String",
+        "category": "String",
+        "collaborators": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Users"
+          }
+        },
+        "created_at": "Date",
+        "updated_at": "Date"
+      }
+    },
+    {
+      "name": "Portfolios",
+      "purpose": "Holds user portfolios showcasing their creative work and projects.",
+      "fields": {
+        "_id": "ObjectId",
+        "user_id": {
+          "type": "ObjectId",
+          "ref": "Users"
+        },
+        "projects": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Projects"
+          }
+        },
+        "showcase": {
+          "type": "Array",
+          "items": {
+            "title": "String",
+            "description": "String",
+            "media": "String",
+            "created_at": "Date"
+          }
+        },
+        "created_at": "Date",
+        "updated_at": "Date"
+      }
+    },
+    {
+      "name": "Feedback",
+      "purpose": "Stores feedback provided by users on various projects to facilitate growth and improvement.",
+      "fields": {
+        "_id": "ObjectId",
+        "project_id": {
+          "type": "ObjectId",
+          "ref": "Projects"
+        },
+        "user_id": {
+          "type": "ObjectId",
+          "ref": "Users"
+        },
+        "feedback_text": "String",
+        "created_at": "Date"
+      }
+    },
+    {
+      "name": "Discussions",
+      "purpose": "Contains discussion threads within communities for user interaction and idea exchange.",
+      "fields": {
+        "_id": "ObjectId",
+        "community_id": {
+          "type": "ObjectId",
+          "ref": "Communities"
+        },
+        "user_id": {
+          "type": "ObjectId",
+          "ref": "Users"
+        },
+        "content": "String",
+        "replies": {
+          "type": "Array",
+          "items": {
+            "type": "ObjectId",
+            "ref": "Discussions"
+          }
+        },
+        "created_at": "Date"
+      }
+    },
+    {
+      "name": "Resources",
+      "purpose": "Stores valuable resources shared within communities for user reference and learning.",
+      "fields": {
+        "_id": "ObjectId",
+        "community_id": {
+          "type": "ObjectId",
+          "ref": "Communities"
+        },
+        "title": "String",
+        "link": "String",
+        "description": "String",
+        "created_at": "Date"
+      }
+    },
+    {
+      "name": "AI_Mentors",
+      "purpose": "Manages AI-powered creative mentors that assist users with idea generation, feedback, and learning suggestions.",
+      "fields": {
+        "_id": "ObjectId",
+        "user_id": {
+          "type": "ObjectId",
+          "ref": "Users"
+        },
+        "preferences": {
+          "type": "Object",
+          "properties": {
+            "creative_fields": "Array of Strings",
+            "learning_goals": "Array of Strings",
+            "feedback_style": "String"
+          }
+        },
+        "created_at": "Date"
+      }
+    },
+    {
+      "name": "Achievements",
+      "purpose": "Tracks user achievements and milestones to gamify the learning and growth experience.",
+      "fields": {
+        "_id": "ObjectId",
+        "user_id": {
+          "type": "ObjectId",
+          "ref": "Users"
+        },
+        "achievement_title": "String",
+        "description": "String",
+        "date_awarded": "Date"
+      }
+    },
+    {
+      "name": "Leaderboards",
+      "purpose": "Maintains leaderboards for different categories to encourage healthy competition and track user rankings.",
+      "fields": {
+        "_id": "ObjectId",
+        "category": "String",
+        "rankings": {
+          "type": "Array",
+          "items": {
+            "user_id": {
+              "type": "ObjectId",
+              "ref": "Users"
+            },
+            "score": "Number"
+          }
+        }
+      }
+    },
+    {
+      "name": "Dashboards",
+      "purpose": "Provides personalized dashboards for users to track their progress, achievements, and growth metrics.",
+      "fields": {
+        "_id": "ObjectId",
+        "user_id": {
+          "type": "ObjectId",
+          "ref": "Users"
+        },
+        "progress": {
+          "type": "Object",
+          "properties": {
+            "courses_completed": "Number",
+            "challenges_participated": "Number",
+            "projects_completed": "Number",
+            "achievements_unlocked": "Number"
+          }
+        },
+        "created_at": "Date",
+        "updated_at": "Date"
+      }
+    }
+  ],
+  "validation": {
+    "Users": {
+      "username": { "type": "String", "required": true, "unique": true },
+      "email": { "type": "String", "required": true, "unique": true },
+      "password": { "type": "String", "required": true }
+    },
+    "Portfolios": {
+      "user_id": { "type": "ObjectId", "required": true },
+      "projects": { "type": "Array", "items": { "type": "ObjectId" } }
+    }
+  },
+  "indexes": [
+    { "collection": "Users", "fields": ["email"], "unique": true },
+    { "collection": "Users", "fields": ["username"], "unique": true }
+  ]
+}

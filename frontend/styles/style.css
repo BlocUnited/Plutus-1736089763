@@ -1,0 +1,61 @@
+/* Global Styles */
+:root {
+    --primary-color: #6200EE;
+    --secondary-color: #03DAC6;
+    --background-color: #FFFFFF;
+    --text-color: #000000;
+    --font-family: 'Roboto, sans-serif';
+    --base-font-size: 16px;
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    --shadow-light: 0px 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-medium: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-heavy: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--base-font-size);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+input {
+    border: 1px solid lightgray;
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+}
+
+input:focus {
+    border: 1px solid var(--primary-color);
+}
+
+.card {
+    background-color: white;
+    box-shadow: var(--shadow-medium);
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+}
+
+.modal {
+    background-color: white;
+    box-shadow: var(--shadow-heavy);
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+}

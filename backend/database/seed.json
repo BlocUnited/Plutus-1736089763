@@ -1,0 +1,153 @@
+{
+  "Users": [
+    {
+      "_id": "ObjectId('60d5ec49f8d2e45a3c9a1b1a')",
+      "username": "creative_user1",
+      "email": "user1@example.com",
+      "password": "hashed_password_1",
+      "portfolio": "ObjectId('60d5ecb9f8d2e45a3c9a1b1b')",
+      "communities": [
+        "ObjectId('60d5ed1ff8d2e45a3c9a1b1c')",
+        "ObjectId('60d5ed2af8d2e45a3c9a1b1d')"
+      ],
+      "achievements": [
+        "ObjectId('60d5ed5bf8d2e45a3c9a1b1e')"
+      ],
+      "leaderboard": "ObjectId('60d5ed6cf8d2e45a3c9a1b1f')",
+      "dashboard": "ObjectId('60d5ed7df8d2e45a3c9a1b20')",
+      "mentor": "ObjectId('60d5ed8ef8d2e45a3c9a1b21')",
+      "created_at": "2024-01-01T10:00:00Z",
+      "updated_at": "2024-01-10T12:00:00Z"
+    }
+  ],
+  "Portfolios": [
+    {
+      "_id": "ObjectId('60d5ecb9f8d2e45a3c9a1b1b')",
+      "user_id": "ObjectId('60d5ec49f8d2e45a3c9a1b1a')",
+      "projects": [
+        "ObjectId('60d5ed9ff8d2e45a3c9a1b22')",
+        "ObjectId('60d5eda0f8d2e45a3c9a1b23')"
+      ],
+      "showcase": [
+        {
+          "title": "Sunset Photography",
+          "description": "A collection of sunset photographs captured over the summer.",
+          "media": "http://example.com/media/sunset_photos.zip",
+          "created_at": "2024-02-15T09:30:00Z"
+        },
+        {
+          "title": "Graphic Design Portfolio",
+          "description": "Various graphic design projects including logos and posters.",
+          "media": "http://example.com/media/graphic_design_portfolio.zip",
+          "created_at": "2024-03-20T14:45:00Z"
+        }
+      ],
+      "created_at": "2024-01-05T11:00:00Z",
+      "updated_at": "2024-04-10T16:00:00Z"
+    }
+  ],
+  "Communities": [
+    {
+      "_id": "ObjectId('60d5ed1ff8d2e45a3c9a1b1c')",
+      "name": "Graphic Designers Hub",
+      "description": "A community for graphic designers to share ideas and collaborate on projects.",
+      "category": "Graphic Design",
+      "members": [
+        "ObjectId('60d5ec49f8d2e45a3c9a1b1a')",
+        "ObjectId('60d5ec4af8d2e45a3c9a1b1b')"
+      ],
+      "discussions": [
+        "ObjectId('60d5edc1f8d2e45a3c9a1b24')"
+      ],
+      "resources": [
+        "ObjectId('60d5edd2f8d2e45a3c9a1b25')"
+      ]
+    }
+  ],
+  "Projects": [
+    {
+      "_id": "ObjectId('60d5ed9ff8d2e45a3c9a1b22')",
+      "title": "Summer Sunset Series",
+      "description": "A photo series capturing sunsets from different locations.",
+      "category": "Photography",
+      "collaborators": [
+        "ObjectId('60d5ec49f8d2e45a3c9a1b1a')"
+      ],
+      "created_at": "2024-02-20T08:00:00Z",
+      "updated_at": "2024-02-25T10:00:00Z"
+    }
+  ],
+  "Achievements": [
+    {
+      "_id": "ObjectId('60d5ed5bf8d2e45a3c9a1b1e')",
+      "user_id": "ObjectId('60d5ec49f8d2e45a3c9a1b1a')",
+      "achievement_title": "First Project Completed",
+      "description": "Successfully completed the 'Summer Sunset Series' project.",
+      "date_awarded": "2024-02-26T10:30:00Z"
+    }
+  ],
+  "Leaderboards": [
+    {
+      "_id": "ObjectId('60d5ed6cf8d2e45a3c9a1b1f')",
+      "category": "Photography",
+      "rankings": [
+        {
+          "user_id": "ObjectId('60d5ec49f8d2e45a3c9a1b1a')",
+          "score": 1500
+        },
+        {
+          "user_id": "ObjectId('60d5ec4af8d2e45a3c9a1b1b')",
+          "score": 1200
+        }
+      ]
+    }
+  ],
+  "Dashboards": [
+    {
+      "_id": "ObjectId('60d5ed7df8d2e45a3c9a1b20')",
+      "user_id": "ObjectId('60d5ec49f8d2e45a3c9a1b1a')",
+      "progress": {
+        "courses_completed": 3,
+        "challenges_participated": 2,
+        "projects_completed": 1,
+        "achievements_unlocked": 1
+      },
+      "created_at": "2024-01-10T12:00:00Z",
+      "updated_at": "2024-04-10T16:00:00Z"
+    }
+  ],
+  "AI_Mentors": [
+    {
+      "_id": "ObjectId('60d5ed8ef8d2e45a3c9a1b21')",
+      "user_id": "ObjectId('60d5ec49f8d2e45a3c9a1b1a')",
+      "preferences": {
+        "creative_fields": ["Photography", "Graphic Design"],
+        "learning_goals": ["Improve composition skills", "Learn advanced Photoshop techniques"],
+        "feedback_style": "Constructive and detailed"
+      },
+      "created_at": "2024-01-15T09:00:00Z"
+    }
+  ],
+  "Discussions": [
+    {
+      "_id": "ObjectId('60d5edc1f8d2e45a3c9a1b24')",
+      "community_id": "ObjectId('60d5ed1ff8d2e45a3c9a1b1c')",
+      "user_id": "ObjectId('60d5ec49f8d2e45a3c9a1b1a')",
+      "content": "What are your favorite techniques for capturing vibrant sunset colors?",
+      "replies": [
+        "ObjectId('60d5edc2f8d2e45a3c9a1b26')"
+      ],
+      "created_at": "2024-02-21T10:15:00Z"
+    }
+  ],
+  "Resources": [
+    {
+      "_id": "ObjectId('60d5edd2f8d2e45a3c9a1b25')",
+      "community_id": "ObjectId('60d5ed1ff8d2e45a3c9a1b1c')",
+      "title": "Ultimate Guide to Photoshop Layers",
+      "link": "http://example.com/resources/photoshop_layers_guide.pdf",
+      "description": "A comprehensive guide on mastering layers in Photoshop.",
+      "created_at": "2024-02-22T11:00:00Z"
+    }
+  ]
+}
